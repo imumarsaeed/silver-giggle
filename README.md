@@ -1,4 +1,4 @@
-# silver-giggle
+# Sensor Fault Classification using Raspberry Pi
 Machine Learning - Fault Diagnosis Project. Files uploaded in this repository will completely deal with
 "Sensor Fault Classification using Raspberry Pi"
 Sensor = AM2302 Temp/Humidity
