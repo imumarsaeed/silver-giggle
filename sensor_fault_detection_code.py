@@ -3,8 +3,7 @@ import time
 import pickle
 import numpy
 
-arduino = serial.Serial('/dev/ttyACM0',9600) #Reading values from Arduino IDE code
-time.sleep(1) #after each second
+arduino = serial.Serial('/dev/ttyACM0',230400) #Reading values from Arduino IDE code
 
 while True: #infinite loop until there is disconnectivity
     data = [] #values storing in this array
@@ -13,7 +12,7 @@ while True: #infinite loop until there is disconnectivity
         readTemp = float(readTemperature) #converting it to float to avoid any inconvenience
         print(readTemp) #priting the values in case if needed else comment it
         data.append(readTemp) #adding values to the list one by one
-        time.sleep(1) #arduino needs to take rest
+        #time.sleep(0.5) # 0.01=10ms, 0.1=100ms, 0.01=10ms
 
     Max = float(max(data)) #For feature extraction
     Mean = float(numpy.mean(data)) #For feature extraction
@@ -27,4 +26,4 @@ while True: #infinite loop until there is disconnectivity
     normal_label_one_faulty_label_zero = svm_prediction.predict([X_test]) #this line of code will be able to predict the sensor fault, because of trained SVM algorithm
     print(normal_label_one_faulty_label_zero) #Faulty-Signal [0] || Normal-Signal [1]
     
-    time.sleep(3) #Pause loop for 3 seconds so RP can take rest
+    time.sleep(0.5) #Pause loop for 0.5 seconds and then go again!
